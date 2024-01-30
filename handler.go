@@ -29,7 +29,7 @@ func (h *Handler) Run() error {
 	wg := sync.WaitGroup{}
 
 	signalChannel := make(chan os.Signal, 1)
-	signal.Notify(signalChannel)
+	signal.Notify(signalChannel, h.Signal...)
 
 	runComplete := makeBoolMutex()
 	shutdownComplete := makeBoolMutex()
